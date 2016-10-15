@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title> Launch instance </title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="client/js/request.js"></script>
+</head>
+<p>
+
+<p>
+    <input type="file" id="fileChooser" multiple>
+    <br>
+    <input type="button" onclick="requestUpload()" value="Request upload"/>
+</p>
+<br>
+<p>
+    Experiments <br>
+    <select id="experiments">
+        <option value="tiny">Tiny load</option>
+        <option value="medium">Medium load</option>
+        <option value="resourceScaling">Resource Scaling</option>
+        <option value="workerFailure">Worker Failure</option>
+    </select>
+    <br>
+    <input type="button" onclick="startExperiment()" value="Start experiment"/>
+    <input type="button" onclick="stopExperiment()" value="Stop experiment"/>
+</p>
+
+</body>
+</html>

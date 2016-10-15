@@ -1,0 +1,42 @@
+------------------- EXPERIMENTS -------------------
+raw performance: response time
+fairness in multi tenancy: completion time of similar jobs
+load balancing: cpu usage statistics for every worker over time
+autoscaling: bursty workload: monitor the amount of jobs over time and the amount of workers leased over time
+
+reliability: simulate worker crash
+
+
+workloads:
+light load + enough initial provisioning: response /completion times
+medium load + enough initial provisioning: response /completion times
+heavy load + enough initial provisioning: response /completion times
+
+insane burst + no initial provisioning + abrupt end : autoscaling
+medium load + simulate half of the workers crashing : reliability
+
+
+
+
+------------------- AUTOSCALING ------------------- 
+
+SCALE UP:
+if average load over all workers exceeds a certain threshold, scale up
+next, scale proportionally (using a scaling factor) to the job request rate + queue size
+
+SCALE DOWN:
+if VM has been inactive longer than a certain threshold, shut it off
+
+------------------- LOAD BALANCING -------------------
+allocation is queue based
+constraints:
+	we only allow starting jobs on machines with average cpu usage <= some threshold.
+	max number of pending jobs on a worker
+stop processing queue if no machine is available with sufficient cpu availability
+try to maximally allocate each machine: high utilization
+
+
+--- QUESTIONS/POSSIBILITIES ---
+possibly, learn the scaling factor
+possibly, learn the max number of pending jobs possible on a machine
+possibly deny request during heavy congestion

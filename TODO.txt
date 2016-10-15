@@ -1,0 +1,31 @@
+--- TODO ---
+scale proportionally (using a scaling factor) to the job request rate + queue size
+make allocation message to workers, which allows for:
+	- also add IP to this message so the worker can check whether the right client is providing the data
+	- notifying the controller if the job data never reached the worker
+	- checking if result request matches ip of job
+
+split controller into multiple files
+nicer experiment administration
+nicer experiment framework at client
+
+what if worker is killed / dies / scaled down before client has received all data
+what if worker crashes while it is pending?
+maintain precedence over restarted jobs + account for job restarts in the job completion time
+
+retrieve status reports as client until result is produced (polling)
+controller faster ip resolution
+clean client interface + meerdere file uploads
+remove debug crap
+allow again for controller restarts
+
+write bootstrapper for controller that hands it its ip
+
+--- QUESTIONS/POSSIBILITIES ---
+retrieve status reports as client until result is produced
+priority system for jobs
+increase security
+less http
+
+--- IF WE ARE RICH ---
+Worker restarts after scaling down
